@@ -1,0 +1,17 @@
+[configuration]
+
+entry_symbol = "formant_lib_init"
+compatibility_minimum = "4.4"
+reloadable = true
+
+[libraries]
+
+linux.debug.x86_64 = "res://bin/libformantpitch.linux.template_debug.x86_64.so"
+
+[dependencies]
+ios.debug = {
+    "res://bin/libgodot-cpp.ios.template_debug.xcframework": ""
+}
+ios.release = {
+    "res://bin/libgodot-cpp.ios.template_release.xcframework": ""
+}
