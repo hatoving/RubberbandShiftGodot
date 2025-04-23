@@ -13,14 +13,14 @@ env = SConscript("godot-cpp/SConstruct")
 # - LINKFLAGS are for linking flags
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CCFLAGS=['-g'])
 env.Append(CPPPATH=["src/"])
 
 env.Append(
     CPPPATH=["/usr/include"],        # Rubber Band headers
     LIBPATH=["/usr/lib"],            # Rubber Band libraries
-    LIBS=["rubberband"]                    # Link librubberband
+    #LIBS=["rubberband"]                    # Link librubberband
 )
+env.Append(LINKFLAGS=["rubberband/lib/librubberband.a"])
 sources = Glob("src/*.cpp")
 
 if env["platform"] == "macos":
