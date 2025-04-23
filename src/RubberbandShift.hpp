@@ -9,33 +9,33 @@
 #include <rubberband/RubberBandStretcher.h>
 
 namespace godot {
-    class FormantPitchEffect;
-    class FormantPitchEffectInstance;
+    class RubberbandShift;
+    class RubberbandShiftInstance;
 
-    class FormantPitchEffectInstance : public AudioEffectInstance {
-      GDCLASS(FormantPitchEffectInstance, AudioEffectInstance);
-      friend class FormantPitchEffect;
-      Ref<FormantPitchEffect> base;
+    class RubberbandShiftInstance : public AudioEffectInstance {
+      GDCLASS(RubberbandShiftInstance, AudioEffectInstance);
+      friend class RubberbandShift;
+      Ref<RubberbandShift> base;
 
       std::vector<float> accumulated_left;
       std::vector<float> accumulated_right;
     protected:
-      static void _bind_methods();  // ← Add this line
+      static void _bind_methods();
       std::unique_ptr<RubberBand::RubberBandStretcher> stretcher;
 
     public:
       void _process(const void *p_src_buffer, AudioFrame *p_dst_buffer, int32_t p_frame_count) override;
 
-      FormantPitchEffectInstance();
-      ~FormantPitchEffectInstance();
+      RubberbandShiftInstance();
+      ~RubberbandShiftInstance();
   };
 
-    class FormantPitchEffect : public AudioEffect {
-        GDCLASS(FormantPitchEffect, AudioEffect);
-        friend class FormantPitchEffectInstance;
+    class RubberbandShift : public AudioEffect {
+        GDCLASS(RubberbandShift, AudioEffect);
+        friend class RubberbandShiftInstance;
         bool preserve_formants = true;
         float pitch_semitones = 0.0f;
-        Ref<FormantPitchEffectInstance> current_instance;
+        Ref<RubberbandShiftInstance> current_instance;
       protected:
         static void _bind_methods();
       public:

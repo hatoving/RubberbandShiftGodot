@@ -1,7 +1,7 @@
 #include <godot_cpp/godot.hpp>               // pulls in gdnative/GDExtension API
 #include <godot_cpp/core/class_db.hpp>
 
-#include "AudioEffectFormantPitch.hpp"
+#include "RubberbandShift.hpp"
 
 using namespace godot;
 
@@ -9,8 +9,8 @@ void initialize_formant_pitch_extension(ModuleInitializationLevel p_level) {
     if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
         return;
     }
-    ClassDB::register_class<FormantPitchEffect>();
-    ClassDB::register_class<FormantPitchEffectInstance>();
+    ClassDB::register_class<RubberbandShift>();
+    ClassDB::register_class<RubberbandShiftInstance>();
 }
 
 extern "C" {
