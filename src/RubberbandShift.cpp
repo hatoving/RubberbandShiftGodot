@@ -20,7 +20,7 @@ namespace godot {
             accumulated_right.push_back(in[i].right);
         }
     
-        constexpr int process_chunk_size = 512;
+        constexpr int process_chunk_size = 1024;
     
         while (accumulated_left.size() >= process_chunk_size) {
             const float *in_channels[2] = {
@@ -105,7 +105,7 @@ namespace godot {
             sampleRate, 2,
             RubberBand::RubberBandStretcher::OptionProcessRealTime |
             (preserve_formants ? RubberBand::RubberBandStretcher::OptionFormantPreserved : RubberBand::RubberBandStretcher::OptionFormantShifted) |
-            RubberBand::RubberBandStretcher::OptionPitchHighConsistency | RubberBand::RubberBandStretcher::OptionEngineFiner,
+            RubberBand::RubberBandStretcher::OptionPitchHighConsistency | RubberBand::RubberBandStretcher::OptionEngineFiner | RubberBand::RubberBandStretcher::OptionWindowShort,
             1.0, 1.0
         );
         print_line("RubberBandStretcher created with sample rate: " + String::num(sampleRate));

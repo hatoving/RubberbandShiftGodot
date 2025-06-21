@@ -4,4 +4,4 @@
 
 using namespace godot;
 
-void initialize_formant_pitch_extension(ModuleInitializationLevel p_level);
+void initialize_rubberband_pitch_extension(ModuleInitializationLevel p_level);

@@ -1,0 +1,25 @@
+[configuration]
+
+entry_symbol = "rubberband_lib_init"
+compatibility_minimum = "4.4"
+reloadable = true
+
+[libraries]
+
+macos.debug = "res://addons/RubberbandPitch/librubberbandpitch.macos.template_debug.framework"
+macos.release = "res://addons/RubberbandPitch/librubberbandpitch.macos.template_release.framework"
+ios.debug = "res://addons/RubberbandPitch/librubberbandpitch.ios.template_debug.xcframework"
+ios.release = "res://addons/RubberbandPitch/librubberbandpitch.ios.template_release.xcframework"
+windows.debug.x86_32 = "res://addons/RubberbandPitch/librubberbandpitch.windows.template_debug.x86_32.dll"
+windows.release.x86_32 = "res://addons/RubberbandPitch/librubberbandpitch.windows.template_release.x86_32.dll"
+windows.debug.x86_64 = "res://addons/RubberbandPitch/librubberbandpitch.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://addons/RubberbandPitch/librubberbandpitch.windows.template_release.x86_64.dll"
+linux.debug.x86_64 = "res://addons/RubberbandPitch/librubberbandpitch.linux.template_debug.x86_64.so"
+
+[dependencies]
+ios.debug = {
+    "res://addons/RubberbandPitch/libgodot-cpp.ios.template_debug.xcframework": ""
+}
+ios.release = {
+    "res://addons/RubberbandPitch/libgodot-cpp.ios.template_release.xcframework": ""
+}

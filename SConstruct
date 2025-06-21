@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/RubberbandPitch/env python
 import os
 import sys
 
@@ -18,14 +18,13 @@ env.Append(CPPPATH=["src/"])
 env.Append(
     CPPPATH=["/usr/include"],        # Rubber Band headers
     LIBPATH=["/usr/lib"],            # Rubber Band libraries
-    #LIBS=["rubberband"]                    # Link librubberband
+    LIBS=["rubberband"]                    # Link librubberband
 )
-env.Append(LINKFLAGS=["rubberband/lib/librubberband.a"])
 sources = Glob("src/*.cpp")
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
-        "bin/formantpitch.{}.{}.framework/formantpitch.{}.{}".format(
+        "bin/RubberbandPitch/rubberbandpitch.{}.{}.framework/rubberbandpitch.{}.{}".format(
             env["platform"], env["target"], env["platform"], env["target"]
         ),
         source=sources,
@@ -33,17 +32,17 @@ if env["platform"] == "macos":
 elif env["platform"] == "ios":
     if env["ios_simulator"]:
         library = env.StaticLibrary(
-            "bin/formantpitch.{}.{}.simulator.a".format(env["platform"], env["target"]),
+            "bin/RubberbandPitch/rubberbandpitch.{}.{}.simulator.a".format(env["platform"], env["target"]),
             source=sources,
         )
     else:
         library = env.StaticLibrary(
-            "bin/formantpitch.{}.{}.a".format(env["platform"], env["target"]),
+            "bin/RubberbandPitch/rubberbandpitch.{}.{}.a".format(env["platform"], env["target"]),
             source=sources,
         )
 else:
     library = env.SharedLibrary(
-        "bin/formantpitch{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+        "bin/RubberbandPitch/rubberbandpitch{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
     )
 
